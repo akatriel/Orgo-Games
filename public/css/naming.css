@@ -1,0 +1,13 @@
+img {
+	width: 25%;
+	height: auto;
+}
+input{
+	border: 2px solid black;
+}
+body{
+	text-align: center;
+}
+.gameOver{
+	display:none;
+}

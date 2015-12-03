@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Name that Alkene!</title>
+	<link rel="stylesheet" type="text/css" href="css/naming.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class= "pic">
+			<img  id="model" src="">
+		</div>
+		<div class= "timer">
+			
+		</div>
+		<div>
+			Score: <span class = "score">0</span>
+		</div>
+		<div>
+			Strikes: <span class = "strikes">0</span>
+		</div>
+	
+	<form>
+		<label>Name that molecule</label>
+		<input type="text" id="chem-input" autocomplete="off" name="mol"/>
+		<input id="fake-submit"type="submit">
+	</form>
+	</div>
+	<div class="gameOver">
+		<h1> Game Over </h1>
+	</div>
+
+	<script type="text/javascript">
+		var score = 0;
+		var strikes = 0;
+		var counter = 40;
+		var alkene = {ethene: ['ethene', 'ethylene'], propene: ['propene', 'prop-1-ene'], but1ene: ['but-1-ene'], ebut2ene: ['e-but-2-ene'], zbut2ene: ['z-but-2-ene'], pent1ene: ['pent-1-ene'], epent2ene: ['e-pent-2-ene'], zpent2ene: ['z-pent-2-ene'], hex1ene: ['hex-1-ene'], ehex2ene: ['e-hex-2-ene'], zhex2ene: ['z-hex-2-ene'], ehex3ene: ['e-hex-3-ene'], zhex3ene: ['z-hex-3-ene'], hept1ene: ['hept-1-ene'], ehept2ene: ['e-hept-2-ene'], zhept2ene: ['z-hept-2-ene'], ehept3ene: ['e-hept-3-ene'], zhept3ene: ['z-hept-3-ene'], oct1ene: ['oct-1-ene'], eoct2ene: ['e-oct-2-ene'], zoct2ene: ['z-oct-2-ene'], zoct3ene: ['z-oct-3-ene'], eoct3ene: ['e-oct-3-ene'], zoct4ene: ['z-oct-4-ene'], eoct4ene: ['e-oct-4-ene']};
+
+
+		$(document).ready(function(){
+			function getRandomInt(min, max) {
+				return Math.floor(Math.random() * (max - min)) + min;
+			}
+			
+			function timer(){
+				genPic();
+				setInterval(function(){
+					$('.timer').html(counter.toString());
+
+					if(counter === 0){
+						counter = 40;
+						strikes++;
+						genPic();
+						if(strikes == 3){
+							gameOver();
+						}
+					}
+					else{
+						counter--;
+					}
+				}, 1000);
+			}
+			timer();
+
+			var randy;
+			var randyRand;
+			function genPic(){
+				imgNames = Object.keys(alkene);
+				randy = getRandomInt(0, imgNames.length); 
+				$('#model').attr('src', '/images/alkenes/' + imgNames[randy] + '.png' );
+			}
+
+			function parseInput(){
+				var input = $('#chem-input').val().toLowerCase();
+				randyRand = getRandomInt(0, alkene[imgNames[randy]].length);
+
+				if(input === alkene[imgNames[randy]][randyRand]){
+					score += counter;
+					counter = 40;
+					genPic();
+					$('#chem-input').val("");
+				}
+				else{
+					strikes++;
+					if(strikes == 3){
+						gameOver();
+					}
+				}
+			}
+
+			function gameOver(){
+				$('.gameOver').show();	
+				setTimeout(function(){location.reload()}, 5000);
+			}
+			$("#fake-submit").click(function(event){
+				event.preventDefault();
+    			parseInput();
+    			$('.score').html(score);
+    			$('.strikes').html(strikes);
+			});
+		});
+	</script>
+</body>
+</html>

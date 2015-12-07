@@ -1,0 +1,21 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<canvas id="canvas"></canvas>
+<script>
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+canvas.addEventListener("mousemove", function(event){
+  if(event.region) {
+    alert("hit region: " + event.region);
+  }
+});
+ctx.beginPath();
+ctx.arc(70, 80, 10, 0, 2 * Math.PI, false);
+ctx.fill();
+ctx.addHitRegion({"id": "circle"});
+
+
+</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Newman Projections</title>
+	<link rel="stylesheet" type="text/css" href="css/newman.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="scripts/propeller.js"></script>
+</head>
+<body>
+	<h1> Newman Projections</h1>
+	<div class = "projections">
+		<img id="back" src="images/newman/newman_2_back.png">
+		<img id="front" src="images/newman/newman_2_front.png">
+	</div>
+	<div class="molecule">
+		<img id="molec" src="images/newman/newman_projections/6.11.png">
+	</div>
+	<p id= "success">Success!</p>
+	<script type="text/javascript">
+		//sub array contains: back file name, front file name, expected userAngle
+		// var testProjections = [['newman_test_back', 'newman_test_front', 60], ['newman_0_back', 'newman_0_front', 60]];
+
+		var projections = [['1_back', '1_front', 300, '6.10'], ['2_back', '2_front', 300, '6.11'], ['3_back', '3_front', 180, '6.12'], ['4_back', '4_front', 180, '6.13'], ['5_back', '5_front', 180, '6.14']];
+
+		$(document).ready(function(){
+			setup();
+			$('#success').hide();
+
+			function getRandomInt(min, max) {
+				return Math.floor(Math.random() * (max - min)) + min;
+			};
+
+			function setup(){
+				//setup random images 
+				var rand = getRandomInt(0, projections.length);
+				$('#back').attr('src', 'images/newman/newman_' + projections[rand][0] + '.png');
+				$('#front').attr('src', 'images/newman/newman_' + projections[rand][1] + '.png');
+				$('#molec').attr('src', 'images/newman/newman_projections/' + projections[rand][3] + '.png');
+				//global variable for expected angle to compare against userAngle
+				expectedAngle = projections[rand][2];
+
+				
+			};
+			//rotation
+			var userAngle;
+			$('#back').propeller({
+				inertia: 0, 
+				speed: 0,
+				onDragStop: function(){
+					userAngle = this.angle;
+					console.log("inside callback: ", userAngle);
+					parseAngle();
+				}
+			});
+
+			function parseAngle(){
+				console.log("user: "+ userAngle);
+				console.log( "expected: " + expectedAngle);
+				if(Math.abs(userAngle - expectedAngle)  < 10){
+					console.log('parsed');
+					$('#success').show();
+				}
+			};
+		});
+	</script>
+</body>
+</html>

@@ -14,3 +14,11 @@ end
 get '/chairs' do 
 	erb :chairs
 end
+
+get '/sample' do
+	erb :sample
+end
+
+get '/newman' do
+	erb :newman
+end

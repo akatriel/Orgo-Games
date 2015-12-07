@@ -1,0 +1,29 @@
+body{
+	margin: 0 auto;
+	width: 100%;
+}
+.projections{
+	width:100%;
+	margin: 0 auto;
+}
+#front, #back{
+	width:400px;
+	height:auto;
+	position:absolute;
+	left:10%;
+	top:25%;	
+}
+#front{
+	z-index: -1;
+	left:9%;
+	top:33%;	
+}
+
+#molec{
+	position:absolute;
+	left: 65%;
+	top:20%;
+}
+#success{
+	text-align: center;
+}

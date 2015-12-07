@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rotate HTML elements by mouse in JavaScript - Propeller.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/turbine.css">
+</head>
+<body>
+<div class="examples_wrapper">
+    <h1>Propeller.js examples</h1>
+    <table>
+        <tr>
+            <td class="example">
+                <p>
+                    $('#example1').propeller({inertia: 1, speed: 1});
+                </p>
+                <img class="turbine" width="100%" height="auto" id="example1" src="./img/turbine.png">
+            </td>
+            <td class="example">
+                <p>
+                    $('#example2').propeller({inertia: 0.98, speed: 0, onStop: function(){alert('Stopped')}});
+                </p>
+                <img class="turbine" width="100%" height="auto" id="example2" src="./img/turbine.png">
+            </td>
+            <td class="example">
+                <p>
+                    $('#example3').propeller({inertia: 0, speed: 0});
+                </p>
+                <img class="turbine" width="100%" height="auto" id="example3" src="./img/turbine.png">
+            </td>
+        </tr>
+        <tr>
+            <td class="example">
+                <p>
+                    $('#example4').propeller({inertia: 1, speed: 0, step: 30});
+                </p>
+                <img class="turbine" width="100%" height="auto" id="example4" src="./img/turbine.png">
+            </td>
+            <td class="example">
+                <p>
+                    $('#example5').propeller({inertia: 0.99, speed: 0, step: 10});
+                </p>
+                <img class="turbine" width="100%" height="auto" id="example5" src="./img/turbine.png">
+            </td>
+            <td class="example">
+                <p>
+                    $('#example6').propeller({inertia: 0, speed: 0, step: 45});
+                </p>
+                <img class="turbine" width="100%" height="auto" id="example6" src="./img/turbine.png">
+            </td>
+        </tr>
+        <tr>
+            <td class="example">
+                <p>
+                    $('#example7').propeller({inertia: 1, speed: 0, step: 30, stepTransitionTime: 500});
+                </p>
+                <img class="turbine" width="100%" height="auto" id="example7" src="./img/turbine.png">
+            </td>
+            <td class="example">
+                <p>
+                    $('#example8').propeller({inertia: 0.99, speed: 0, step: 10, stepTransitionTime: 100});
+                </p>
+                <img class="turbine" width="100%" height="auto" id="example8" src="./img/turbine.png">
+            </td>
+            <td class="example">
+                <p>
+                    $('#example9').propeller({inertia: 0, speed: 0, step: 45, stepTransitionTime: 300, <br>onRotate: function(){
+                    console.log(this.angle);
+                    }});
+                </p>
+                <img class="turbine" width="100%" height="auto" id="example9" src="./img/turbine.png">
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="content" style="position: static; margin-left: 20px; margin-bottom: 20px; padding-bottom: 20px;">
+    <a href="./iframe.html">More examples</a>
+    <a 
+       href="http://pixelscommander.com/en/javascript/rotate-html-elements-with-mouse/">Documentation</a>
+    <a href="https://github.com/PixelsCommander/Propeller/archive/master.zip">Download</a>
+    <a href="https://github.com/PixelsCommander/Propeller">GitHub</a>
+
+    <div class="social_stuff">
+        <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style">
+            <a class="addthis_button_tweet"></a>
+            <iframe style="display: inline-block;"
+                    src="http://ghbtns.com/github-btn.html?user=PixelsCommander&repo=Propeller&type=watch"
+                    allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe>
+            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+            <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+
+        </div>
+        <script type="text/javascript">var addthis_config = {"data_track_addressbar": true};</script>
+        <script type="text/javascript"
+                src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4ea2f9164143bcfb"></script>
+        <!-- AddThis Button END -->
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="../src/propeller.js"></script>
+<script>
+    $('#example1').propeller({inertia: 1, speed: 1});
+    $('#example2').propeller({inertia: 0.98, speed: 0, angle: 30, onStop: function(){alert('Stopped')}});
+    $('#example3').propeller({inertia: 0, speed: 0});
+    $('#example4').propeller({inertia: 1, speed: 0, step: 30});
+    $('#example5').propeller({inertia: 0.99, speed: 0, step: 10});
+    $('#example6').propeller({inertia: 0, speed: 0, step: 45});
+    $('#example7').propeller({inertia: 1, speed: 0, step: 30, stepTransitionTime: 500, stepTransitionEasing: 'ease-in-out'});
+    $('#example8').propeller({inertia: 0.99, speed: 0, step: 10, stepTransitionTime: 100, stepTransitionEasing: 'ease-in'});
+    $('#example9').propeller({inertia: 0, speed: 0, step: 45, stepTransitionTime: 300, stepTransitionEasing: 'ease-out', onRotate: function(){
+        console.log(this.angle);
+    }});
+</script>
+</body>
+</html>

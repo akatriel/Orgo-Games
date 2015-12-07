@@ -15,36 +15,47 @@
 		var canvas = document.getElementById("canvas");
 		if(canvas.getContext){
 			var context = canvas.getContext("2d");
-			console.log('context');
 			setNodes();
 		}
 		
 		//set nodes. Counting starts at leftmost carbon and counts clockwise.''
-		
+
 		function setNodes(){
 			console.log('setNodes');
-			var topNodes = [[126,113], [275,147], [425,113], [502, 235], [354,199], [205,235]];
-			var botNodes = [[119, 292], [195,178], [342,211], [491, 176], [415,294], [266,257]];
-
-			// for(var i = 0; i < topNodes.length; i++){
-
-			// }
-			var x = topNodes[0][0];
-			var y = topNodes[0][1];
-			context.beginPath();
-			context.arc(x - 5,y - 5,10,0,2*Math.PI);
-			context.stroke();
+			var topNodes = [[116,108], [266,141], [414,105], [492, 225], [345, 191], [195,227]];
+			var botNodes = [[109,494], [185,376], [336,414], [481,375], [405,495], [257,455]];
+			console.log()
+			for(var i = 0; i < topNodes.length; i++){
+				var x = topNodes[i][0];
+				var y = topNodes[i][1];
+				context.beginPath();
+				context.arc(x,y,10,0,2*Math.PI);
+				context.stroke();
+			}
 		}
 
-		//click event only on nodes
-		$('#canvas').on('click', function(){
-			var x = Math.round((event.clientX-rect.left)/(rect.right-rect.left)*canvas.width);
-			var y = Math.round((event.clientY-rect.top)/(rect.bottom-rect.top)*canvas.height);
+		//getBoundingClientRect returns the dimensions of the canvas element including offsets such as a border. This is used to adjust the mouse coordinates returned so that they correspond to the canvas directly and consistently.
+
+
+		$('#canvas').on('click', function(evt){
+			var rect = canvas.getBoundingClientRect();
+			var x = Math.round((evt.clientX-rect.left)/(rect.right-rect.left)*canvas.width);
+			var y = Math.round((evt.clientY-rect.top)/(rect.bottom-rect.top)*canvas.height);
+	        
 		    console.log(x,y);
 		});
-		
-	// 	// drag and drop line
-	// 	//calculate degrees rotated from origin (node)
+
+	//TODO list:
+	// drag and drop line only from node.
+	//calculate degrees rotated from origin (node)
+	//randomize node appearance.
+	//scoring
+
+
+
+
+
+
 
 
 	// 	$('#canvas').mousedown(function(e){

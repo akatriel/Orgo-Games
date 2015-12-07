@@ -1,21 +1,42 @@
+<!DOCTYPE HTML>
 <html>
-<head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-</head>
-<canvas id="canvas"></canvas>
-<script>
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
-canvas.addEventListener("mousemove", function(event){
-  if(event.region) {
-    alert("hit region: " + event.region);
-  }
-});
-ctx.beginPath();
-ctx.arc(70, 80, 10, 0, 2 * Math.PI, false);
-ctx.fill();
-ctx.addHitRegion({"id": "circle"});
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      canvas {
+      	border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+      function writeMessage(canvas, message) {
+        var context = canvas.getContext('2d');
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.font = '18pt Calibri';
+        context.fillStyle = 'black';
+        context.fillText(message, 10, 25);
+      }
+      function getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+			x: Math.round((evt.clientX-rect.left)/(rect.right-rect.left)*canvas.width),
+			y: Math.round((evt.clientY-rect.top)/(rect.bottom-rect.top)*canvas.height)
+        };
+      }
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
 
-
-</script>
+      canvas.addEventListener('mousemove', function(evt) {
+        var mousePos = getMousePos(canvas, evt);
+        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+        writeMessage(canvas, message);
+      }, false);
+    </script>
+  </body>
 </html>
+      

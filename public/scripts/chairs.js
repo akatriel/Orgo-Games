@@ -82,7 +82,6 @@ $('#canvas').on('mouseup', function(evt){
 		}
 
 		$('#score').text(score);
-		
 		console.log(score);
 	}
 	if(!success){

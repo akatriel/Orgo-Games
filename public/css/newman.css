@@ -1,9 +1,16 @@
 body{
 	margin: 0 auto;
 	width: 100%;
+	background-image: url('../images/flask_wallpaper.jpg');
+	background-color: rgba(255, 255, 255, .9);
+
+	background-repeat: repeat;
+	
+	background-blend-mode: color;
+	text-align: center;	
 }
 .projections{
-	width:100%;
+	width:50%;
 	margin: 0 auto;
 }
 #front, #back{
@@ -13,6 +20,7 @@ body{
 	left:10%;
 	top:25%;	
 }
+
 #front{
 	z-index: -1;
 	left:9%;
@@ -24,6 +32,17 @@ body{
 	left: 65%;
 	top:20%;
 }
-#success{
-	text-align: center;
+#stable{
+	margin: 0 auto;
+	font-size: 400%;
+	width: 25%;
+	background-color: slategrey;
+	border-radius:10%;
+}
+#molec{
+	border:2px solid black;
+}
+
+canvas{
+	z-index: 1;
 }

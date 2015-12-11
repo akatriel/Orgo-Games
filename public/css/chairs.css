@@ -49,7 +49,7 @@ body{
    border-radius: 10px;
    display: none;
 }
-#start{
+#start, #unlimited{
 	width:100%;
 }
 h2 {

@@ -2,29 +2,24 @@
 // 	$('#progressbar', '#innerBar').hide();
 // });
 $('#start').on('click', function(){
+
+	game();
+	function game(){
 		$('#start').hide();
-		function setTimer(){
-			$('#progressbar, #innerBar').show();
-			$('#innerBar').width('100%');
-			var num = 100;
-			var si = setInterval(function(){
-				var wid = num + '%';
-				num--;
-				$('#innerBar').width(wid);
-				if(num === 0){
-					clearTimeout(si);
-				}
-				console.log(num);
-			}, 500);
-		}
+		$('h2').hide();
+
+		
 		setTimer();
 		//canvas setup
-		var startX, startY, topNodes, botNodes, topSideChains, primaryNode, secondaryNode, primarySC, secondarySC, ran, success;
+		var startX, startY, topNodes, botNodes, topSideChains, primaryNode, secondaryNode, primarySC, secondarySC, ran, success, num, si, score;
+		score = 0;
 		success = false;
+
 		var isDown = false;
 		var canvas = document.getElementById("canvas");
 		if(canvas.getContext){
 			var context = canvas.getContext("2d");
+			context.clearRect(0,0,canvas.width, canvas.height);
 			setNodes();
 			drawSC();
 		}
@@ -72,18 +67,42 @@ $('#start').on('click', function(){
       		evt.preventDefault();
 			isDown = false;
 			if(success){
+				//redraw
 				context.clearRect(0,0,canvas.width, canvas.height);
 				setNodes();
 				drawSC();
+				score = score + (100 - num);
+				$('#score').show();
+				$('#score').text(score);
+				console.log(score);
 			}
 		});
+
+		$('#playAgain').click(function(){
+			game();
+		});
+
+
+		function setTimer(){
+			$('#progressbar, #innerBar').show();
+			$('#innerBar').width('0%');
+			num = 0;
+			si = setInterval(function(){
+				var wid = num + '%';
+				num++;
+	
+				if(num === 101){
+					clearInterval(si);
+					$('h2').show();
+					$('#playAgain').show();
+				}
+				$('#innerBar').width(wid);
+			}, 500);
+		}
 
 
 		//just for logging
 		$('#canvas').on('click', function(evt){
-			// var rect = canvas.getBoundingClientRect();
-			// var x = Math.round((evt.clientX-rect.left)/(rect.right-rect.left)*canvas.width);
-			// var y = Math.round((evt.clientY-rect.top)/(rect.bottom-rect.top)*canvas.height);
 	   		var positions = mousePosition(evt);
 	   		var x = positions[0];
 	   		var y = positions[1];
@@ -248,6 +267,9 @@ $('#start').on('click', function(){
 		}
 
 
+		
+
+
 		//TODO list:
 		// drag and drop line only from node. [x]
 		//calculate degrees rotated from origin (node) [x]
@@ -260,5 +282,5 @@ $('#start').on('click', function(){
 		//compare drawn line to template line [x]
 		//timer[x]
 		//scoring []
-		
+		}
 	});

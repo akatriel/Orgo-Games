@@ -25,6 +25,12 @@ body{
 .container p {
 	font-weight: bold;
 }
+#score{
+	text-align: center;
+	display: none;
+	margin:1px;
+	border:1px solid black;
+}
 #progressbar {
   background-color: black;
   border-radius: 13px; /* (height of inner div) / 2 + padding */
@@ -32,7 +38,10 @@ body{
   margin: 2%;
   display: none;
 }
-
+#playAgain{
+	display: none;
+	width:100%;
+}
 #innerBar{
    background-color: orange;
    width: 50%; /* Adjust with JavaScript */
@@ -42,4 +51,8 @@ body{
 }
 #start{
 	width:100%;
+}
+h2 {
+	margin:4%;
+	display: none;
 }

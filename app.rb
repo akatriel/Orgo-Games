@@ -1,6 +1,6 @@
 require 'sinatra'
 
-get '/index' do
+get '/' do
 	erb :index
 end
 
@@ -13,10 +13,6 @@ get '/alkenes' do
 end
 get '/chairs' do 
 	erb :chairs
-end
-
-get '/sample' do
-	erb :sample
 end
 
 get '/newman' do

@@ -55,4 +55,79 @@ body{
 h2 {
 	margin:4%;
 	display: none;
+}	
+/*http://codepen.io/nad/pen/camij*/
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Open Sans Extrabold'), local('OpenSans-Extrabold'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/EInbV5DfGHOiMmvb1Xr-hnhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+
+.nav {
+	width:100% !important;
+	left:0px;
+	position:absolute;
+	overflow:hidden;
+	height:65px;
+	background-color:#8b9da9;
+	background-image:url(http://ipnk.co/background/blur-background06.jpg);
+	-webkit-box-shadow:0px 2px 1px rgba(50, 50, 50, 0.22);
+	-moz-box-shadow:0px 2px 1px rgba(50, 50, 50, 0.22);
+	box-shadow:0px 2px 1px rgba(50, 50, 50, 0.22);
+	padding-right:20px;
+}
+.nav li {
+	text-align:center;
+	font-family: open sans;
+	font-size: 20px;
+	color: #ffffff;
+	height:47.5px;
+	padding-left:20px;
+	padding-right:20px;
+	cursor:pointer;
+	padding-top:17.5px !important;
+	float: left;
+	list-style: none;
+	font-weight: 200;
+	border-left:1px solid rgba(0,0,0,.1);
+	background-color:none;
+	transition:background-color ease-in-out .5s;
+	-moz-transition:background-color ease-in-out .5s;
+	-webkit-transition:background-color ease-in-out .5s;
+	-o-transition:background-color ease-in-out .5s;
+	text-shadow: 0px -3px 3px rgba(255, 255, 255, 0.2);
+}
+.nav li a,a:visited,a:hover {
+	color: white;
+	text-decoration:none;
+}
+.nav li:first-child {
+	font-weight:bold;
+	border-left:none;
+}
+
+.nav li:hover {
+	background-color:rgba(255,255,255,.2);
+}
+.nav li.active {
+	background-color:rgba(255,255,255,.2);
 }

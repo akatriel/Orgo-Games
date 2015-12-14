@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset='utf-8'/>
 	<title>Name the Alkane</title>
 	<link rel="stylesheet" type="text/css" href="css/naming.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -14,22 +15,33 @@
 			
 		</div>
 		<div>
-			Score: <span class = "score">0</span>
+			Score: <span class= "score">0</span>
 		</div>
 		<div>
-			Strikes: <span class = "strikes">0</span>
+			Strikes: <span class= "strikes">0</span>
 		</div>
 	
-	<form>
-		<label>Name that molecule</label>
-		<input type="text" id="chem-input" autocomplete="off" name="mol"/>
-		<input id="fake-submit"type="submit">
-	</form>
-	</div>
-	<div class="gameOver">
-		<h1> Game Over </h1>
-	</div>
+		<form>
+			<label>Name that molecule</label>
+			<input type="text" id="chem-input" autocomplete="off" name="mol"/>
+			<input id="fake-submit"type="submit">
+		</form>
 
+		<div class="gameOver">
+			<h1> Game Over </h1>
+		</div>
+
+	</div>
+	
+	<nav>
+		<ul class="nav">
+			<li><a href="/index">Home</a></li>
+			<li><a href="/alkanes">Alkanes</a></li>
+			<li><a href="/alkenes">Alkenes</a></li>
+			<li><a href="/newman">Newman Projections</a></li>
+			<li><a href="/chairs">Chairs</a></li>
+		</ul>
+	</nav>
 	<script type="text/javascript">
 		var score = 0;
 		var strikes = 0;

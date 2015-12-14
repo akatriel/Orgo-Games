@@ -21,16 +21,25 @@
 			Strikes: <span class = "strikes">0</span>
 		</div>
 	
-	<form>
-		<label>Name that molecule</label>
-		<input type="text" id="chem-input" autocomplete="off" name="mol"/>
-		<input id="fake-submit"type="submit">
-	</form>
-	</div>
-	<div class="gameOver">
-		<h1> Game Over </h1>
-	</div>
+		<form>
+			<label>Name that molecule</label>
+			<input type="text" id="chem-input" autocomplete="off" name="mol"/>
+			<input id="fake-submit"type="submit">
+		</form>
+		<div class="gameOver">
+			<h1> Game Over </h1>
+		</div>
 
+	</div>
+	<nav>
+		<ul class="nav">
+			<li><a href="/index">Home</a></li>
+			<li><a href="/alkanes">Alkanes</a></li>
+			<li><a href="/alkenes">Alkenes</a></li>
+			<li><a href="/newman">Newman Projections</a></li>
+			<li><a href="/chairs">Chairs</a></li>
+		</ul>
+	</nav>
 	<script type="text/javascript">
 		var score = 0;
 		var strikes = 0;
@@ -75,7 +84,7 @@
 				var input = $('#chem-input').val().toLowerCase();
 				randyRand = getRandomInt(0, alkene[imgNames[randy]].length);
 
-				if(input === alkene[imgNames[randy]][randyRand]){
+				if(input === alkene[imgNames[randy]][0] || input === alkene[imgNames[randy]][1]){
 					score += counter;
 					counter = 40;
 					genPic();

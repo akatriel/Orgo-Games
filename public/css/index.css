@@ -1,8 +1,5 @@
 body {
-	background-image: url('http://bestmode.pl/wp-content/uploads/2015/06/kartandtinki1_chemistry-wallpaper_04.jpg');
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: fit;
+	background-image: url('../images/light_honeycomb_2X.png');
 }
 
 .game img{
@@ -23,6 +20,7 @@ body {
 	display: inline-block;
 	margin-left: 2%;
 	margin-right: 2%;
+	background: white;
 }
 #methane{
 	width:200px;
@@ -32,6 +30,8 @@ body {
 	display: inline-block;
 	width:100%;
 	text-align: center;
+	color:white;
+	background-color: #2a2730;
 }
 li{
 	list-style-type: none;

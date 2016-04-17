@@ -62,7 +62,7 @@ $('#canvas').on('mousemove', function(evt) {
 
 $('#canvas').on('mouseup', function(evt){
 	evt.stopPropagation();
-		evt.preventDefault();
+	evt.preventDefault();
 	isDown = false;
 	if(success){
 		//redraw
@@ -87,8 +87,6 @@ $('#canvas').on('mouseup', function(evt){
 	if(!success){
 		num += 10;
 	}
-
-
 });
 
 //just for logging
@@ -113,6 +111,7 @@ function setTimer(){
 
 		if(num > 100){
 			clearInterval(si);
+			wid = '100%'
 			$('h2').text('Game Over. Your score was: ' + score);
 			$('h2').show();
 			$('#playAgain').show();
@@ -166,11 +165,14 @@ function drawNodes(){
 		var y = topNodes[i][1];
 
 		context.beginPath();
+		context.globalAlpha = 0.4;
 		if(x === primaryNode[0] && y === primaryNode[1]){
 			context.strokeStyle = 'green';
+			context.globalAlpha = 1;
 		}
 		else if(x === secondaryNode[0] && y === secondaryNode[1]){
 			context.strokeStyle = 'red';
+			context.globalAlpha = 1;
 		}
 		else{	
 			context.strokeStyle = 'black';
@@ -186,11 +188,14 @@ function drawNodes(){
 		var y = botNodes[i][1];
 
 		context.beginPath();
+		context.globalAlpha = 0.4;
 		if(x === primaryNode[0] && y === primaryNode[1]){
 			context.strokeStyle = 'green';
+			context.globalAlpha = 1;
 		}
 		else if(x === secondaryNode[0] && y === secondaryNode[1]){
 			context.strokeStyle = 'red'; 
+			context.globalAlpha = 1;
 		}
 		else{
 			context.strokeStyle = 'black';
@@ -218,6 +223,7 @@ function drawSC(){
 	context.beginPath();
 	context.moveTo(ox, oy);
 	context.strokeStyle = 'black';
+	context.globalAlpha = 1;
 	context.lineTo(x,y);
 	context.closePath();
 	context.stroke();
@@ -237,6 +243,7 @@ function mousePosition(evt){
 function drawLine(x,y){
 	context.beginPath();
 	context.moveTo(primaryNode[0],primaryNode[1]);
+	context.globalAlpha = 1;
 	if(success){
 		context.strokeStyle = 'green';
 	}
